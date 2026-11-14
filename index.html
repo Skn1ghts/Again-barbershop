@@ -30,9 +30,16 @@
   .nav ul{display:flex;gap:28px;list-style:none;font-size:14px;color:var(--muted)}
   .nav ul a:hover{color:var(--text)}
   .nav-right{display:flex;align-items:center;gap:10px}
-  .lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
-  .lang button{background:none;border:0;color:var(--muted);font:800 13px Manrope,sans-serif;padding:7px 11px;border-radius:999px;cursor:pointer;letter-spacing:.04em}
-  .lang button[aria-pressed="true"]{background:var(--accent);color:#1a1510}
+  .lang-btn{position:relative;height:38px;min-width:52px;padding:0 14px;border-radius:999px;border:1px solid var(--accent);background:transparent;color:var(--accent);font:800 13px Manrope,sans-serif;letter-spacing:.06em;cursor:pointer;overflow:hidden;transition:background .2s,color .2s,transform .15s}
+  .lang-btn:hover{background:var(--accent);color:#1a1510}
+  .lang-btn:active{transform:scale(.94)}
+  .lang-roll{display:flex;flex-direction:column;height:38px;transition:transform .45s cubic-bezier(.7,-0.4,.3,1.4)}
+  .lang-roll span{height:38px;line-height:38px;display:block}
+  .lang-btn.kk .lang-roll{transform:translateY(-38px)}
+  [data-i18n]{transition:opacity .22s ease, transform .22s ease}
+  body.switching [data-i18n]{opacity:0;transform:translateY(6px)}
+  .float{transition:opacity .3s ease, transform .3s ease}
+  .float.hide{opacity:0;transform:translateY(20px) scale(.9);pointer-events:none}
   .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15px;padding:14px 22px;border-radius:999px;transition:transform .15s,background .15s}
   .btn:active{transform:scale(.97)}
   .btn-wa{background:var(--wa);color:#08280f}
@@ -51,7 +58,7 @@
      background:repeating-linear-gradient(-45deg,#b8322f 0 18px,#f3ede4 18px 36px,#2c4f8a 36px 54px,#f3ede4 54px 72px);background-size:100% 204px;animation:spin 3s linear infinite}
   @keyframes spin{to{background-position:0 204px}}
   @media (prefers-reduced-motion:reduce){.pole{animation:none}}
-  .eyebrow{display:inline-block;color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+  .eyebrow{display:inline-block;line-height:1.7;max-width:640px;color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
   .hero h1{font-size:clamp(48px,10vw,104px);max-width:760px}
   .hero h1 em{font-style:normal;color:var(--accent)}
   .hero p{color:var(--muted);font-size:18px;max-width:520px;margin:22px 0 32px}
@@ -105,7 +112,8 @@
 
   .float{position:fixed;right:18px;bottom:18px;z-index:30;box-shadow:0 10px 30px rgba(37,211,102,.35)}
 
-  @media (max-width:400px){ .nav-right .btn{display:none} }
+  @media (max-width:820px){ .nav-right .btn{display:none} }
+  @media (min-width:821px){ .float{display:none} }
   @media (max-width:820px){
     .nav ul{display:none}
     .pole{display:none}
@@ -131,10 +139,9 @@
       <li><a href="#contacts" data-i18n="nav_contacts">Контакты</a></li>
     </ul>
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="Язык / Тіл">
-        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
-        <button type="button" data-lang="kk" aria-pressed="false">KZ</button>
-      </div>
+      <button type="button" class="lang-btn" id="langBtn" aria-label="Тілді ауыстыру / Сменить язык">
+        <span class="lang-roll"><span>RU</span><span>KZ</span></span>
+      </button>
       <a class="btn btn-wa btn-sm wa-link" href="https://wa.me/77073266665" target="_blank" rel="noopener">
         <svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="book">Записаться</span>
       </a>
@@ -146,7 +153,7 @@
   <section class="hero">
     <div class="pole" aria-hidden="true"></div>
     <div class="wrap">
-      <span class="eyebrow" data-i18n="eyebrow">Барбершоп · Алматы</span>
+      <span class="eyebrow" data-i18n="eyebrow">Барбершоп · Алматы · Стрижка от 2500 ₸ · Запись в WhatsApp</span>
       <h1 data-i18n="h1">Хорошая стрижка — <em>снова</em> и снова</h1>
       <p data-i18n="hero_p">Again Barbershop — мужские и детские стрижки в Алматы. Аккуратно, без переплат и без долгого ожидания.</p>
       <div class="cta">
@@ -263,7 +270,7 @@
   var KK = {
     nav_prices:"Бағалар", nav_why:"Артықшылықтар", nav_contacts:"Байланыс",
     book:"Жазылу", book_wa:"WhatsApp арқылы жазылу", see_prices:"Бағаларды көру",
-    eyebrow:"Барбершоп · Алматы",
+    eyebrow:"Барбершоп · Алматы · Шаш қию 2500 ₸-ден · WhatsApp арқылы жазылу",
     h1:"Қайта-қайта <em>келгің</em> келеді",
     hero_p:"Again Barbershop — Алматыдағы ерлер мен балаларға арналған шаштараз. Ұқыпты, артық ақысыз және ұзақ күтусіз.",
     from2500:"2500 ₸-ден", mens_cut_l:"ерлер шаш қиюы", from11:"11:00-ден", we_open:"жұмыс бастаймыз", for_guests:"қонақтарға",
@@ -287,6 +294,7 @@
   };
   var MSG = { ru:"Здравствуйте! Хочу записаться на стрижку", kk:"Сәлеметсіз бе! Шаш қиюға жазылғым келеді" };
   var TITLE = { ru:document.title, kk:"Again Barbershop — Алматыдағы барбершоп" };
+  var btn = document.getElementById('langBtn');
   var els = document.querySelectorAll('[data-i18n]');
   var RU = {};
   els.forEach(function(el){ var k=el.getAttribute('data-i18n'); if(!(k in RU)) RU[k]=el.innerHTML; });
@@ -294,16 +302,36 @@
     var dict = lang==='kk' ? KK : RU;
     els.forEach(function(el){ var k=el.getAttribute('data-i18n'); if(dict[k]!=null) el.innerHTML=dict[k]; });
     document.querySelectorAll('.wa-link').forEach(function(a){ a.href='https://wa.me/77073266665?text='+encodeURIComponent(MSG[lang]); });
-    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-lang')===lang); });
+    btn.classList.toggle('kk', lang==='kk');
     document.documentElement.lang = lang==='kk' ? 'kk' : 'ru';
     document.title = TITLE[lang];
     try{ localStorage.setItem('lang', lang); }catch(e){}
   }
-  document.querySelectorAll('.lang button').forEach(function(b){
-    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+  var current='ru', busy=false;
+  btn.addEventListener('click', function(){
+    if(busy) return; busy=true;
+    var next = current==='ru' ? 'kk' : 'ru';
+    btn.classList.toggle('kk', next==='kk');
+    document.body.classList.add('switching');
+    setTimeout(function(){
+      setLang(next); current=next;
+      requestAnimationFrame(function(){ document.body.classList.remove('switching'); busy=false; });
+    }, 230);
   });
   var saved='ru'; try{ saved = localStorage.getItem('lang') || 'ru'; }catch(e){}
-  setLang(saved==='kk'?'kk':'ru');
+  current = saved==='kk'?'kk':'ru'; setLang(current);
+
+  // плавающая кнопка прячется, когда на экране видна другая кнопка WhatsApp
+  var fl=document.querySelector('.float');
+  var others=[].slice.call(document.querySelectorAll('main .wa-link'));
+  if('IntersectionObserver' in window && fl){
+    var vis=new Set();
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ var shown=e.isIntersecting && e.target.offsetParent!==null; if(shown) vis.add(e.target); else vis.delete(e.target); });
+      fl.classList.toggle('hide', vis.size>0);
+    },{threshold:0.1});
+    others.forEach(function(o){ io.observe(o); });
+  }
 })();
 </script>
 
