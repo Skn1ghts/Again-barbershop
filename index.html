@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Again Barbershop — барбершоп в Алматы, мкр Мадениет</title>
-<meta name="description" content="Again Barbershop в Алматы: мужская стрижка от 2500 ₸, детские стрижки. Шоган Абыз, 49, мкр Мадениет. Запись в WhatsApp.">
+<title>Again Barbershop — барбершоп в Алматы</title>
+<meta name="description" content="Again Barbershop в Алматы: мужская стрижка от 2500 ₸, детские стрижки. Шоган Абыз, 49. Запись в WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
@@ -29,6 +29,10 @@
   .logo span{color:var(--accent)}
   .nav ul{display:flex;gap:28px;list-style:none;font-size:14px;color:var(--muted)}
   .nav ul a:hover{color:var(--text)}
+  .nav-right{display:flex;align-items:center;gap:10px}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+  .lang button{background:none;border:0;color:var(--muted);font:800 13px Manrope,sans-serif;padding:7px 11px;border-radius:999px;cursor:pointer;letter-spacing:.04em}
+  .lang button[aria-pressed="true"]{background:var(--accent);color:#1a1510}
   .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15px;padding:14px 22px;border-radius:999px;transition:transform .15s,background .15s}
   .btn:active{transform:scale(.97)}
   .btn-wa{background:var(--wa);color:#08280f}
@@ -101,6 +105,7 @@
 
   .float{position:fixed;right:18px;bottom:18px;z-index:30;box-shadow:0 10px 30px rgba(37,211,102,.35)}
 
+  @media (max-width:400px){ .nav-right .btn{display:none} }
   @media (max-width:820px){
     .nav ul{display:none}
     .pole{display:none}
@@ -121,13 +126,19 @@
   <div class="wrap nav">
     <a href="#top" class="logo">AGAIN<span>.</span></a>
     <ul>
-      <li><a href="#prices">Цены</a></li>
-      <li><a href="#why">О нас</a></li>
-      <li><a href="#contacts">Контакты</a></li>
+      <li><a href="#prices" data-i18n="nav_prices">Цены</a></li>
+      <li><a href="#why" data-i18n="nav_why">Преимущества</a></li>
+      <li><a href="#contacts" data-i18n="nav_contacts">Контакты</a></li>
     </ul>
-    <a class="btn btn-wa btn-sm" href="https://wa.me/77073266665?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%BA%D1%83" target="_blank" rel="noopener">
-      <svg class="wa-ico"><use href="#wa"/></svg>Записаться
-    </a>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Язык / Тіл">
+        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-lang="kk" aria-pressed="false">KZ</button>
+      </div>
+      <a class="btn btn-wa btn-sm wa-link" href="https://wa.me/77073266665" target="_blank" rel="noopener">
+        <svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="book">Записаться</span>
+      </a>
+    </div>
   </div>
 </header>
 
@@ -135,19 +146,19 @@
   <section class="hero">
     <div class="pole" aria-hidden="true"></div>
     <div class="wrap">
-      <span class="eyebrow">Барбершоп · Алматы · мкр Мадениет</span>
-      <h1>Хорошая стрижка — <em>снова</em> и снова</h1>
-      <p>Again Barbershop — мужские и детские стрижки в Алматы. Аккуратно, без переплат и без долгого ожидания.</p>
+      <span class="eyebrow" data-i18n="eyebrow">Барбершоп · Алматы</span>
+      <h1 data-i18n="h1">Хорошая стрижка — <em>снова</em> и снова</h1>
+      <p data-i18n="hero_p">Again Barbershop — мужские и детские стрижки в Алматы. Аккуратно, без переплат и без долгого ожидания.</p>
       <div class="cta">
-        <a class="btn btn-wa" href="https://wa.me/77073266665?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%BA%D1%83" target="_blank" rel="noopener">
-          <svg class="wa-ico"><use href="#wa"/></svg>Записаться в WhatsApp
+        <a class="btn btn-wa wa-link" href="https://wa.me/77073266665" target="_blank" rel="noopener">
+          <svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="book_wa">Записаться в WhatsApp</span>
         </a>
-        <a class="btn btn-ghost" href="#prices">Смотреть цены</a>
+        <a class="btn btn-ghost" href="#prices" data-i18n="see_prices">Смотреть цены</a>
       </div>
       <div class="facts">
-        <div class="fact"><b>от 2500 ₸</b><span>мужская стрижка</span></div>
-        <div class="fact"><b>с 11:00</b><span>открываемся</span></div>
-        <div class="fact"><b>Wi‑Fi</b><span>для гостей</span></div>
+        <div class="fact"><b data-i18n="from2500">от 2500 ₸</b><span data-i18n="mens_cut_l">мужская стрижка</span></div>
+        <div class="fact"><b data-i18n="from11">с 11:00</b><span data-i18n="we_open">открываемся</span></div>
+        <div class="fact"><b>Wi‑Fi</b><span data-i18n="for_guests">для гостей</span></div>
       </div>
     </div>
   </section>
@@ -155,49 +166,49 @@
   <section id="prices">
     <div class="wrap">
       <div class="head">
-        <h2>Цены</h2>
-        <p>Честный прайс без сюрпризов. Точную стоимость под вашу задачу мастер подскажет в WhatsApp.</p>
+        <h2 data-i18n="nav_prices">Цены</h2>
+        <p data-i18n="prices_p">Честный прайс без сюрпризов. Точную стоимость под вашу задачу мастер подскажет в WhatsApp.</p>
       </div>
       <div class="price">
         <div class="row">
-          <div><h3>Мужская стрижка</h3><small>Консультация, мытьё головы, укладка</small></div>
-          <div class="dots"></div><div class="cost">от 2500 ₸</div>
+          <div><h3 data-i18n="p1">Мужская стрижка</h3><small data-i18n="p1d">Консультация, мытьё головы, укладка</small></div>
+          <div class="dots"></div><div class="cost" data-i18n="from2500">от 2500 ₸</div>
         </div>
         <div class="row">
-          <div><h3>Детская стрижка</h3><small>Спокойно и терпеливо, для маленьких гостей</small></div>
+          <div><h3 data-i18n="p2">Детская стрижка</h3><small data-i18n="p2d">Спокойно и терпеливо, для маленьких гостей</small></div>
           <div class="dots"></div><div class="cost">???</div>
         </div>
         <div class="row">
-          <div><h3>Стрижка бороды</h3><small>Форма, контур, уход</small></div>
+          <div><h3 data-i18n="p3">Стрижка бороды</h3><small data-i18n="p3d">Форма, контур, уход</small></div>
           <div class="dots"></div><div class="cost">???</div>
         </div>
         <div class="row">
-          <div><h3>Стрижка + борода</h3><small>Комплекс за один визит</small></div>
+          <div><h3 data-i18n="p4">Стрижка + борода</h3><small data-i18n="p4d">Комплекс за один визит</small></div>
           <div class="dots"></div><div class="cost">???</div>
         </div>
       </div>
-      <p class="note">Цены и полный прайс уточняйте у администратора.</p>
+      <p class="note" data-i18n="note">Цены и полный прайс уточняйте у администратора.</p>
     </div>
   </section>
 
   <section id="why" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
     <div class="wrap">
-      <div class="head"><h2>Почему возвращаются</h2></div>
+      <div class="head"><h2 data-i18n="nav_why">Преимущества</h2></div>
       <div class="grid">
         <div class="card">
           <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></div>
-          <h3>Доступно</h3>
-          <p>Стрижка от 2500 ₸ — качественно и без переплаты за вывеску.</p>
+          <h3 data-i18n="f1">Доступно</h3>
+          <p data-i18n="f1d">Стрижка от 2500 ₸ — качественно и без переплаты за вывеску.</p>
         </div>
         <div class="card">
           <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-          <h3>Запись за минуту</h3>
-          <p>Пишете в WhatsApp — выбираете удобное время. Без звонков и ожидания на линии.</p>
+          <h3 data-i18n="f2">Запись за минуту</h3>
+          <p data-i18n="f2d">Пишете в WhatsApp — выбираете удобное время. Без звонков и ожидания на линии.</p>
         </div>
         <div class="card">
           <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
-          <h3>Для всей семьи</h3>
-          <p>Стрижём и взрослых, и детей. Пока ждёте — бесплатный Wi‑Fi.</p>
+          <h3 data-i18n="f3">Для всей семьи</h3>
+          <p data-i18n="f3d">Стрижём и взрослых, и детей. Пока ждёте — бесплатный Wi‑Fi.</p>
         </div>
       </div>
     </div>
@@ -205,30 +216,30 @@
 
   <section>
     <div class="wrap">
-      <div class="head"><h2>Как записаться</h2></div>
+      <div class="head"><h2 data-i18n="how">Как записаться</h2></div>
       <div class="steps">
-        <div class="step"><h3>Напишите</h3><p>Нажмите кнопку WhatsApp — сообщение уже готово.</p></div>
-        <div class="step"><h3>Выберите время</h3><p>Администратор предложит свободные окна.</p></div>
-        <div class="step"><h3>Приходите</h3><p>Шоган Абыз, 49 — ждём вас без очереди.</p></div>
+        <div class="step"><h3 data-i18n="s1">Напишите</h3><p data-i18n="s1d">Нажмите кнопку WhatsApp — сообщение уже готово.</p></div>
+        <div class="step"><h3 data-i18n="s2">Выберите время</h3><p data-i18n="s2d">Администратор предложит свободные окна.</p></div>
+        <div class="step"><h3 data-i18n="s3">Приходите</h3><p data-i18n="s3d">Шоган Абыз, 49 — ждём вас без очереди.</p></div>
       </div>
     </div>
   </section>
 
   <section id="contacts" style="padding-top:0">
     <div class="wrap">
-      <div class="head"><h2>Контакты</h2></div>
+      <div class="head"><h2 data-i18n="nav_contacts">Контакты</h2></div>
       <div class="contact">
         <div class="map">
           <iframe id="map" title="Карта 2ГИС: Again Barbershop" loading="lazy" frameborder="0" src="https://makemap.2gis.ru/widget?data=eJw1j8tqxDAMRf9F3ZrBjyRO8gEt3c2u0DKLMFZbgxMZRwOdhvx7NQ71ytwjXx1vQCVgwfCCNCOXiCuMHxvwPSOM8IwT3wqCglwoY-HKBUdODy4g4HotMXOk5QiulKjI9enTukZbSX5fl4A_MBr9f3YFX8fCe607tp0pLlwbRCouE1cZ35164zrdqcadnBu0ucjzGGBsrd8vCuYpn2mNh8EGaWIY62g_OOO8b_XQKEgPWrvaxthea6utMSJHNIual075CKX09o2Y3mvK5Yb7HzW-WJc" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
-          <a class="btn btn-ghost btn-sm map-btn" href="https://2gis.kz/almaty/firm/70000001118851601" target="_blank" rel="noopener">Открыть в 2ГИС →</a>
+          <a class="btn btn-ghost btn-sm map-btn" href="https://2gis.kz/almaty/firm/70000001118851601" target="_blank" rel="noopener" data-i18n="open2gis">Открыть в 2ГИС →</a>
         </div>
         <dl class="info">
-          <div><dt>Адрес</dt><dd>ул. Шоган Абыз, 49<br>мкр Мадениет, Алатауский район, Алматы</dd></div>
+          <div><dt data-i18n="addr">Адрес</dt><dd data-i18n="addr_v">ул. Шоган Абыз, 49<br>Мадениет, Алатауский район, Алматы</dd></div>
           <div><dt>Телефон / WhatsApp</dt><dd><a href="tel:+77073266665">+7 707 326 66 65</a></dd></div>
-          <div><dt>Режим работы</dt><dd>Открываемся в 11:00</dd></div>
+          <div><dt data-i18n="hours">Режим работы</dt><dd data-i18n="hours_v">Открываемся в 11:00</dd></div>
           <div><dt>Instagram</dt><dd><a href="https://instagram.com/again.barbershop" target="_blank" rel="noopener">@again.barbershop</a></dd></div>
-          <a class="btn btn-wa" href="https://wa.me/77073266665?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%BA%D1%83" target="_blank" rel="noopener" style="justify-content:center">
-            <svg class="wa-ico"><use href="#wa"/></svg>Написать в WhatsApp
+          <a class="btn btn-wa wa-link" href="https://wa.me/77073266665" target="_blank" rel="noopener" style="justify-content:center">
+            <svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="write_wa">Написать в WhatsApp</span>
           </a>
         </dl>
       </div>
@@ -238,15 +249,63 @@
 
 <footer>
   <div class="wrap">
-    <span>© Again Barbershop, Алматы</span>
-    <span>ул. Шоган Абыз, 49</span>
+    <span>© Again Barbershop, <span data-i18n="city">Алматы</span></span>
+    <span data-i18n="street">ул. Шоган Абыз, 49</span>
   </div>
 </footer>
 
-<a class="btn btn-wa float" href="https://wa.me/77073266665?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%BA%D1%83" target="_blank" rel="noopener" aria-label="Записаться в WhatsApp">
-  <svg class="wa-ico"><use href="#wa"/></svg>Записаться
+<a class="btn btn-wa float wa-link" href="https://wa.me/77073266665" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="book">Записаться</span>
 </a>
 
+<script>
+(function(){
+  var KK = {
+    nav_prices:"Бағалар", nav_why:"Артықшылықтар", nav_contacts:"Байланыс",
+    book:"Жазылу", book_wa:"WhatsApp арқылы жазылу", see_prices:"Бағаларды көру",
+    eyebrow:"Барбершоп · Алматы",
+    h1:"Қайта-қайта <em>келгің</em> келеді",
+    hero_p:"Again Barbershop — Алматыдағы ерлер мен балаларға арналған шаштараз. Ұқыпты, артық ақысыз және ұзақ күтусіз.",
+    from2500:"2500 ₸-ден", mens_cut_l:"ерлер шаш қиюы", from11:"11:00-ден", we_open:"жұмыс бастаймыз", for_guests:"қонақтарға",
+    prices_p:"Тосын сыйсыз адал прайс. Нақты бағаны шебер WhatsApp-та айтып береді.",
+    p1:"Ерлер шаш қиюы", p1d:"Кеңес, бас жуу, сәндеу",
+    p2:"Балалар шаш қиюы", p2d:"Кішкентай қонақтарға — асықпай әрі шыдамдылықпен",
+    p3:"Сақал қию", p3d:"Пішін, контур, күтім",
+    p4:"Шаш қию + сақал", p4d:"Бәрі бір келгенде",
+    note:"Бағалар мен толық прайсты әкімшіден нақтылаңыз.",
+    f1:"Қолжетімді", f1d:"Шаш қию 2500 ₸-ден — сапалы әрі артық төлемсіз.",
+    f2:"Бір минутта жазылу", f2d:"WhatsApp-қа жазасыз — ыңғайлы уақытты таңдайсыз. Қоңыраусыз, желіде күтусіз.",
+    f3:"Бүкіл отбасыға", f3d:"Үлкендерді де, балаларды да қиямыз. Күткен кезде — тегін Wi‑Fi.",
+    how:"Қалай жазылуға болады",
+    s1:"Жазыңыз", s1d:"WhatsApp батырмасын басыңыз — хабарлама дайын.",
+    s2:"Уақытты таңдаңыз", s2d:"Әкімші бос уақыттарды ұсынады.",
+    s3:"Келіңіз", s3d:"Шоған Абыз, 49 — сізді кезексіз күтеміз.",
+    open2gis:"2ГИС-те ашу →",
+    addr:"Мекенжай", addr_v:"Шоған Абыз көшесі, 49<br>Мәдениет, Алатау ауданы, Алматы",
+    hours:"Жұмыс уақыты", hours_v:"11:00-де ашыламыз",
+    write_wa:"WhatsApp-қа жазу", city:"Алматы", street:"Шоған Абыз көшесі, 49"
+  };
+  var MSG = { ru:"Здравствуйте! Хочу записаться на стрижку", kk:"Сәлеметсіз бе! Шаш қиюға жазылғым келеді" };
+  var TITLE = { ru:document.title, kk:"Again Barbershop — Алматыдағы барбершоп" };
+  var els = document.querySelectorAll('[data-i18n]');
+  var RU = {};
+  els.forEach(function(el){ var k=el.getAttribute('data-i18n'); if(!(k in RU)) RU[k]=el.innerHTML; });
+  function setLang(lang){
+    var dict = lang==='kk' ? KK : RU;
+    els.forEach(function(el){ var k=el.getAttribute('data-i18n'); if(dict[k]!=null) el.innerHTML=dict[k]; });
+    document.querySelectorAll('.wa-link').forEach(function(a){ a.href='https://wa.me/77073266665?text='+encodeURIComponent(MSG[lang]); });
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-lang')===lang); });
+    document.documentElement.lang = lang==='kk' ? 'kk' : 'ru';
+    document.title = TITLE[lang];
+    try{ localStorage.setItem('lang', lang); }catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+  });
+  var saved='ru'; try{ saved = localStorage.getItem('lang') || 'ru'; }catch(e){}
+  setLang(saved==='kk'?'kk':'ru');
+})();
+</script>
 
 </body>
 </html>
